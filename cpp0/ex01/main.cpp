@@ -6,7 +6,7 @@
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:52:24 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/05 22:38:53 by mneves-l         ###   ########.fr       */
+/*   Updated: 2024/06/06 10:25:24 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@ void the_menu(){
     std::cout << YELLOW << "│  3. EXIT             │" << RM <<  std::endl;
     std::cout << YELLOW << "└──────────────────────┘" << RM <<  std::endl;
     std::cout << YELLOW << "Enter your choice: " << RM;
+}
+
+bool is_number(const std::string& str)
+{
+    for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
+        if (std::isdigit(*it) == 0) return false;
+    }
+    return true;
 }
 
 void    add_contact(int i, PhoneBook *phonebook)
@@ -75,14 +83,11 @@ void   search_contact(int i, PhoneBook *phonebook)
         std::cout << RED << "\n Exiting program \n" << RM << std::endl;
         exit(0);
     }
-    try {
-        if ((std::stoi(command) >= 0 && std::stoi(command) <= 7) && std::stoi(command) <= cases && !command.empty())
-            phonebook->getContact(std::stoi(command)).showInfo();
-        else
-            std::cout << RED << "Invalid index!" << RM << std::endl; 
-    } catch (std::invalid_argument&){
-        std::cout << RED << "Invalid index!" << RM << std::endl;
-    }
+
+    if ((is_number(command) && atoi(command.c_str()) >= 0 && atoi(command.c_str()) <= 7) && atoi(command.c_str()) <= cases && !command.empty())
+        phonebook->getContact(atoi(command.c_str())).showInfo();
+    else
+        std::cout << RED << "Invalid index!" << RM << std::endl; 
 
 }
 

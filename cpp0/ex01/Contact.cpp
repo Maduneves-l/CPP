@@ -6,13 +6,21 @@
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:51:15 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/05 22:17:23 by mneves-l         ###   ########.fr       */
+/*   Updated: 2024/06/06 10:26:30 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
 Contact::Contact(){}
+
+bool  Contact:: isNumber(const std::string& str)
+{
+    for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
+        if (std::isdigit(*it) == 0) return false;
+    }
+    return true;
+}
 
 void Contact:: setContact(int type)
 {
@@ -38,17 +46,9 @@ void Contact:: setContact(int type)
                     std::cout << RED << "\n Exiting program \n" << RM << std::endl;
                     exit(0);
                 }
-                try{
-                    std::stoi(input);
-                    if (input.size() < 9){
-                        std::cout << RED <<"Phone number must have 9 digits. Please try again." << RM << std::endl;
-                        continue;
-                    }
-                } catch (std::invalid_argument&){
-                    std::cout << RED << "Phone number must have 9 digits. Please try again." << RM << std::endl;
-                    continue;
-                } catch (std::out_of_range&){
-                    std::cout << RED << "Phone number must have 9 digits. Please try again." << RM << std::endl;
+                atoi(input.c_str());
+                if (input.size() < 9 || isNumber(input) == false){
+                    std::cout << RED <<"Phone number must have 9 digits. Please try again." << RM << std::endl;
                     continue;
                 }
                 break;  
@@ -85,7 +85,7 @@ void Contact:: setContact(int type)
         this->last_name = input;
         break;
     case 3:
-        this->phone = std::stoi(input);
+        this->phone = atoi(input.c_str());
         break;
     case 4:
         this->nick = input;
