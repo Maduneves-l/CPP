@@ -6,7 +6,7 @@
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:52:24 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/06 10:42:03 by mneves-l         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:31:11 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,24 @@ void the_menu(){
     std::cout << YELLOW << "│  3. EXIT             │" << RM <<  std::endl;
     std::cout << YELLOW << "└──────────────────────┘" << RM <<  std::endl;
     std::cout << YELLOW << "Enter your choice: " << RM;
+}
+
+std::string normalizeSpacesAndTabs(const std::string& input) {
+    std::string output;
+    bool lastWasSpace = false;
+
+    for (size_t i = 0; i < input.length(); i++) {
+        if (input[i] == '\t' || input[i] == ' ') {
+            if (!lastWasSpace) {
+                output += ' ';
+                lastWasSpace = true;
+            }
+        } else {
+            output += input[i];
+            lastWasSpace = false;
+        }
+    }
+    return output;
 }
 
 bool is_number(const std::string& str)
@@ -59,18 +77,21 @@ void   search_contact(int i, PhoneBook *phonebook)
     {
         
         std::cout << "|" << std::setw(10) << j << "|";
+        std::string firstName = normalizeSpacesAndTabs(phonebook->getContact(j).getInfo(1));
         if (phonebook->getContact(j).getInfo(1).size() > 10)
-            std::cout << std::setw(9) << phonebook->getContact(j).getInfo(1).substr(0, 9) << ".|";
+            std::cout << std::setw(9) << firstName.substr(0, 9) << ".|";
         else
-            std::cout << std::setw(10) << phonebook->getContact(j).getInfo(1) << "|";
+            std::cout << std::setw(10) << firstName << "|";
+        std::string lastName = normalizeSpacesAndTabs(phonebook->getContact(j).getInfo(2));
         if (phonebook->getContact(j).getInfo(2).size() > 10)
-            std::cout << std::setw(9) << phonebook->getContact(j).getInfo(2).substr(0, 9) << ".|";
+            std::cout << std::setw(9) << lastName.substr(0, 9) << ".|";
         else
-            std::cout << std::setw(10) << phonebook->getContact(j).getInfo(2) << "|";
+            std::cout << std::setw(10) << lastName << "|";
+        std::string nick = normalizeSpacesAndTabs(phonebook->getContact(j).getInfo(4));
         if (phonebook->getContact(j).getInfo(4).size() > 10)
-            std::cout << std::setw(9) << phonebook->getContact(j).getInfo(4).substr(0, 9) << ".|" << std::endl;
+            std::cout << std::setw(9) << nick.substr(0, 9) << ".|" << std::endl;
         else
-            std::cout << std::setw(10) << phonebook->getContact(j).getInfo(4) << "|" << std::endl;
+            std::cout << std::setw(10) << nick << "|" << std::endl;
         std::cout << std::endl;
         cases = j;
     }

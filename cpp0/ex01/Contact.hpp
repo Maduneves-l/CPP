@@ -6,7 +6,7 @@
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 15:10:11 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/06 10:48:46 by mneves-l         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:04:24 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Contact {
     private:
         std::string first_name;
         std::string last_name;
-        int         phone;
+        std::string phone;
         std::string nick;
         std::string dark_secret;
     public:

@@ -6,7 +6,7 @@
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:51:15 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/06 10:49:07 by mneves-l         ###   ########.fr       */
+/*   Updated: 2024/06/06 16:03:47 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void Contact:: setContact(int type)
         this->last_name = input;
         break;
     case 3:
-        this->phone = atoi(input.c_str());
+        this->phone = input;
         break;
     case 4:
         this->nick = input;
@@ -101,17 +101,13 @@ void Contact:: setContact(int type)
 
 std::string Contact::getInfo(int type)
 {
-    std::stringstream ss;
     switch (type) {
     case 1:
         return this->first_name;
     case 2:
         return this->last_name;
     case 3:
-    {
-        ss << this->phone;
-        return ss.str();
-    }
+        return this->phone;
     case 4:
         return this->nick;
     case 5:
