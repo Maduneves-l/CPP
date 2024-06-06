@@ -6,7 +6,7 @@
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:52:24 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/06 10:25:24 by mneves-l         ###   ########.fr       */
+/*   Updated: 2024/06/06 10:42:03 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int main(void)
             std::cout << RED << "\n Invalid argument" << RM << std::endl;
         if (command == "ADD")
         {
-            if (i > 8)
+            if (i > 7)
                 i = 0;
             add_contact(i, &phonebook);
             i++;

@@ -6,7 +6,7 @@
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 15:10:11 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/06 10:26:02 by mneves-l         ###   ########.fr       */
+/*   Updated: 2024/06/06 10:48:46 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 #define BLUE "\033[1;34m"
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
+#include <sstream>
 
 class Contact {
     private:
@@ -31,6 +33,7 @@ class Contact {
         std::string dark_secret;
     public:
         Contact();
+        ~Contact();
         void setContact(int type);
         std::string getInfo(int type);
         void showInfo(void);

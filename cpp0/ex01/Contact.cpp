@@ -6,13 +6,15 @@
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:51:15 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/06 10:26:30 by mneves-l         ###   ########.fr       */
+/*   Updated: 2024/06/06 10:49:07 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
 Contact::Contact(){}
+
+Contact::~Contact(){}
 
 bool  Contact:: isNumber(const std::string& str)
 {
@@ -46,7 +48,6 @@ void Contact:: setContact(int type)
                     std::cout << RED << "\n Exiting program \n" << RM << std::endl;
                     exit(0);
                 }
-                atoi(input.c_str());
                 if (input.size() < 9 || isNumber(input) == false){
                     std::cout << RED <<"Phone number must have 9 digits. Please try again." << RM << std::endl;
                     continue;
@@ -100,13 +101,17 @@ void Contact:: setContact(int type)
 
 std::string Contact::getInfo(int type)
 {
+    std::stringstream ss;
     switch (type) {
     case 1:
         return this->first_name;
     case 2:
         return this->last_name;
     case 3:
-        return std::to_string(this->phone);
+    {
+        ss << this->phone;
+        return ss.str();
+    }
     case 4:
         return this->nick;
     case 5:
