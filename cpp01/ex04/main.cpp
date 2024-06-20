@@ -6,7 +6,7 @@
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 22:49:38 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/18 15:58:28 by mneves-l         ###   ########.fr       */
+/*   Updated: 2024/06/19 08:54:57 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 void replaceAll(std::string& str, const std::string& from, const std::string& to) {
     if (from.empty())
         return;
-    size_t start_pos = 0;
-    while((start_pos = str.find(from, start_pos)) != std::string::npos) {
-        str.replace(start_pos, from.length(), to);
-        start_pos += to.length(); // Handles case where 'to' is a substring of 'from'
+    size_t start_pos = str.find(from);
+    while(start_pos != std::string::npos) {
+        str.erase(start_pos, from.size());
+        str.insert(start_pos, to);
+        start_pos = str.find(from, start_pos + to.size());
     }
 }
 
