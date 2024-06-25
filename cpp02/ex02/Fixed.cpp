@@ -6,7 +6,7 @@
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 19:08:19 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/23 19:26:54 by mneves-l         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:15:12 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ Fixed Fixed::operator++() {
 }
 
 Fixed Fixed::operator++(int) {
-    Fixed tmp(*this);
-    tmp.operator++();
+    Fixed tmp = *this;
+    ++(*this);
     return tmp;
 }
 
@@ -95,8 +95,8 @@ Fixed Fixed::operator--() {
 }
 
 Fixed Fixed::operator--(int) {
-    Fixed tmp(*this);
-    tmp.operator--();
+    Fixed tmp = *this;
+    --(*this);
     return tmp;
 }
 
