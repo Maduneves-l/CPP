@@ -6,7 +6,7 @@
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 19:01:26 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/23 19:18:58 by mneves-l         ###   ########.fr       */
+/*   Updated: 2024/06/25 11:43:44 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+#include <cmath>
 
 class Fixed {
     private:
