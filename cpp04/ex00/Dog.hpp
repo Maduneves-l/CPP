@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/23 19:27:04 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/27 09:53:34 by mneves-l         ###   ########.fr       */
+/*   Created: 2024/06/27 10:32:11 by mneves-l          #+#    #+#             */
+/*   Updated: 2024/06/27 10:32:22 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-int main( void ) {
-    Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+# include "Animal.hpp"
+
+class Dog : public Animal {
     
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max( a, b ) << std::endl;
-    
-    return 0;
-}
+    public:
+        Dog(void);
+        Dog(Dog const & src);
+        Dog& operator=(Dog const & src);
+        virtual ~Dog( void );
+
+    virtual void makeSound(void) const;
+};
+
+#endif

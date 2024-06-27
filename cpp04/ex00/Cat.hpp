@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/23 19:27:04 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/27 09:53:34 by mneves-l         ###   ########.fr       */
+/*   Created: 2024/06/27 10:23:08 by mneves-l          #+#    #+#             */
+/*   Updated: 2024/06/27 10:23:59 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
 
-int main( void ) {
-    Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+# include "Animal.hpp"
+
+class Cat : public Animal {
     
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max( a, b ) << std::endl;
-    
-    return 0;
-}
+    public:
+        Cat(void);
+        Cat(Cat const & src);
+        Cat& operator=(Cat const & src);
+        virtual ~Cat( void );
+
+    virtual void makeSound(void) const;
+};
+
+#endif

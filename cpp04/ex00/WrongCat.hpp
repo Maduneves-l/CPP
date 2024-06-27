@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/23 19:27:04 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/27 09:53:34 by mneves-l         ###   ########.fr       */
+/*   Created: 2024/06/27 10:39:46 by mneves-l          #+#    #+#             */
+/*   Updated: 2024/06/27 10:40:58 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-int main( void ) {
-    Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+# include "WrongAnimal.hpp"
+# define RED    "\033[31m"
+# define RST   "\033[0m"
+
+class WrongCat : public WrongAnimal {
     
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max( a, b ) << std::endl;
-    
-    return 0;
-}
+    public:
+        WrongCat(void);
+        WrongCat(WrongCat const & src);
+        WrongCat& operator=(WrongCat const & src);
+        ~WrongCat( void );
+
+    void makeSound(void) const;
+};
+
+#endif
