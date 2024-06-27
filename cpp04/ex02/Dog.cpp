@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 10:24:14 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/27 12:31:30 by mneves-l         ###   ########.fr       */
+/*   Created: 2024/06/27 10:33:00 by mneves-l          #+#    #+#             */
+/*   Updated: 2024/06/27 12:33:40 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 
-Cat::Cat(void) {
-    type = "Cat";
+Dog::Dog(void) {
+    type = "Dog";
     brain = new Brain();
-    std::cout << CYAN << "Cat Default constructor called" << RST << std::endl;
+    std::cout << GREEN << "Dog Default constructor called" << RST << std::endl;
 }
 
-Cat::Cat(Cat const & src) {
-    std::cout << CYAN << "Cat Copy constructor called" << RST << std::endl;
+Dog::Dog(Dog const & src) {
+    std::cout << GREEN << "Dog Copy constructor called" << RST << std::endl;
 	this->type = src.type;
 	this->brain = new Brain(*src.brain);
 }
 
-Cat& Cat::operator=(Cat const & src) {
-    std::cout << CYAN << "Cat Assignation operator called" << RST << std::endl;
+Dog& Dog::operator=(Dog const & src) {
+    std::cout << GREEN << "Dog Assignation operator called" << RST << std::endl;
 	if (this != &src){
 		this->type = src.type;
 		delete this->brain;
@@ -34,23 +34,24 @@ Cat& Cat::operator=(Cat const & src) {
 	return (*this);
 }
 
-Cat::~Cat(void) {
-    std::cout << CYAN << "Cat Destructor called" << RST << std::endl;
+Dog::~Dog(void) {
+    std::cout << GREEN << "Dog Destructor called" << RST << std::endl;
     delete brain;
 }
 
-void Cat::makeSound(void) const {
-    std::cout << CYAN << "MIAU MIAU" << RST << std::endl;
+void Dog::makeSound(void) const {
+    std::cout << GREEN << "AUAU AUAU" << RST << std::endl;
 }
 
-std::string Cat::getType(void) const {
+std::string Dog::getType(void) const {
     return this->type;
 }
 
-void Cat::setIdea(std::string idea, int i) {
+void Dog::setIdea(std::string idea, int i) {
     this->brain->setIdea(idea, i);
 }
 
-std::string Cat::getIdea(int i) const {
+std::string Dog::getIdea(int i) const {
     return this->brain->getIdea(i);
 }
+

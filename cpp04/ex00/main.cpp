@@ -6,7 +6,7 @@
 /*   By: mneves-l <mneves-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 10:43:15 by mneves-l          #+#    #+#             */
-/*   Updated: 2024/06/27 10:52:48 by mneves-l         ###   ########.fr       */
+/*   Updated: 2024/06/27 11:39:18 by mneves-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main( void ) {
 	x->makeSound();
 
 	const WrongCat* cat = new WrongCat();
-	std::cout << BLUE <<  "Type of animal is: " << cat->getType() << std::endl;
+	std::cout << BLUE <<  "Type of animal is: " << cat->getType() << RST << std::endl;
 	cat->makeSound();
 
 	delete cat;
